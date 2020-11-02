@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
   spec.name         = "AgoraLog"
   spec.version      = "1.0.0"
   spec.summary      = "AgoraLogger can filter log and print on console. It also write all logs to file."
-  spec.homepage     = "https://github.com/AgoraIO-Usecase/Tools/tree/master/AgoraLog-Objective-C"
+  spec.homepage     = "https://github.com/AgoraIO-Usecase/Tools/"
   spec.license      = "MIT"
   spec.author       = { "CavanSu" => "403029552@qq.com" }
   spec.ios.deployment_target = "10.0"
