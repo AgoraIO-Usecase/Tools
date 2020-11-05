@@ -22,7 +22,7 @@ allprojects {
 在app目录下的build.gradle文件中添加以下配置
 ``` kotlin
 dependencies {
-		implementation 'com.github.AgoraIO-Usecase:Tools:AgoraLog-Android-1.0.1'
+		implementation 'com.github.AgoraIO-Usecase:Tools:log_java_1.0.1'
 	}
 ```
 同步工程

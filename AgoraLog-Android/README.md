@@ -22,7 +22,7 @@ allprojects {
 In the app directory build.gradle Add the following configuration to the file
 ``` kotlin
 dependencies {
-		implementation 'com.github.AgoraIO-Usecase:Tools:AgoraLog-Android-1.0.1'
+		implementation 'com.github.AgoraIO-Usecase:Tools:log_java_1.0.1'
 	}
 ```
 Sync project.
