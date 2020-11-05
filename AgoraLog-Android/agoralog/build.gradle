@@ -10,7 +10,7 @@ def safeExtGet(prop, key, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'io.agora.agoralog'
+group = 'com.github.AgoraIO-Usecase'
 version = '1.0.1'
 
 android {
