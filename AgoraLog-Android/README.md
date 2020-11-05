@@ -1,4 +1,4 @@
-# AgoraLog
+# AgoraLog *[简体中文](README.zh.md)*
 
 The SDK supports outputting logs to Android studio console, console and writing files. Multiple logger objects can be created to output the logs received by each object. Objects are independent of each other.
 

@@ -1,4 +1,4 @@
-# AgoraLog
+# AgoraLog   *[English](README.md)*
 
 该 SDK 支持将日志输出到 Android Studio console， 控制台 与写入文件。可以创建多个 Logger 对象，输出各个对象所接收到的日志。各个对象之间相互独立。
 
