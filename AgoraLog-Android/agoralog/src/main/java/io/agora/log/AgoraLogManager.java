@@ -13,23 +13,23 @@ import static com.elvishew.xlog.LogLevel.ALL;
 /**
  * @author cjw
  */
-public class LogManager {
+public class AgoraLogManager {
     private Logger logger;
     private CheckUtil checkUtil = new CheckUtil();
 
-    public LogManager(@NonNull String folderPath, @NonNull String filePrefix,
-                      int maximumNumberOfFiles) throws Exception {
+    public AgoraLogManager(@NonNull String folderPath, @NonNull String filePrefix,
+                           int maximumNumberOfFiles) throws Exception {
         this(folderPath, filePrefix, maximumNumberOfFiles, null);
     }
 
-    public LogManager(@NonNull String folderPath, @NonNull String filePrefix,
-                      int maximumNumberOfFiles, @NonNull String tag) throws Exception {
+    public AgoraLogManager(@NonNull String folderPath, @NonNull String filePrefix,
+                           int maximumNumberOfFiles, @NonNull String tag) throws Exception {
         this(folderPath, filePrefix, maximumNumberOfFiles, tag, AgoraConsolePrintType.NONE);
     }
 
-    public LogManager(@NonNull String folderPath, @NonNull String filePrefix,
-                      int maximumNumberOfFiles, String tag,
-                      int consolePrintType) throws Exception {
+    public AgoraLogManager(@NonNull String folderPath, @NonNull String filePrefix,
+                           int maximumNumberOfFiles, String tag,
+                           int consolePrintType) throws Exception {
         if (TextUtils.isEmpty(folderPath) || TextUtils.isEmpty(filePrefix) || maximumNumberOfFiles <= 0) {
             throw new Exception("Parameter is invalid");
         }
