@@ -10,8 +10,8 @@ def safeExtGet(prop, key, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.Chen-Alexander'
-version='1.0.1'
+group = 'io.agora.agoralog'
+version = '1.0.1'
 
 android {
     compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
