@@ -9,6 +9,9 @@ def safeExtGet(prop, key, fallback) {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.agoralog'
+version='1.0.1'
 
 android {
     compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
@@ -31,5 +34,4 @@ dependencies {
 
     api "androidx.annotation:annotation:${safeExtGet('dependencies', 'androidx.annotation:annotation', '1.1.0')}"
     implementation "com.elvishew:xlog:${safeExtGet('dependencies', 'com.elvishew:xlog', '1.7.0')}"
-    implementation "com.aliyun.dpa:oss-android-sdk:${safeExtGet('dependencies', 'com.aliyun.dpa:oss-android-sdk', '2.9.4')}"
 }
