@@ -13,20 +13,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val logManager0 = AgoraLogManager(
-            "/sdcard/0/5/6/",
-            "AgoraLog",
-            2,
-            "AgoraEducationSDK",
-            NONE
-        )
-        val logManager1 = AgoraLogManager(
-            "/sdcard/1/",
-            "AgoraLog",
-            2,
-            "AgoraEducationSDK",
-            WARNING
-        )
+//        val logManager0 = AgoraLogManager(
+//            "/sdcard/0/5/6/",
+//            "AgoraLog",
+//            2,
+//            "AgoraEducationSDK",
+//            NONE
+//        )
+//        val logManager1 = AgoraLogManager(
+//            "/sdcard/1/",
+//            "AgoraLog",
+//            2,
+//            "AgoraEducationSDK",
+//            WARNING
+//        )
         val logManager2 = AgoraLogManager(
             "/sdcard/2/",
             "AgoraLog",
@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         )
 
         for (i in 0..9) {
-            logManager0.logMsg("log-0---$i", AgoraLogType.INFO)
-            logManager1.logMsg("log-1---$i", AgoraLogType.WARNING)
+//            logManager0.logMsg("log-0---$i", AgoraLogType.INFO)
+//            logManager1.logMsg("log-1---$i", AgoraLogType.WARNING)
             logManager2.logMsg("log-2---$i", AgoraLogType.ERROR)
         }
 
