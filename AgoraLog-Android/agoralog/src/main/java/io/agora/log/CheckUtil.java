@@ -1,5 +1,7 @@
 package io.agora.log;
 
+import android.text.TextUtils;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.text.ParseException;
@@ -11,10 +13,10 @@ import java.util.List;
 
 public class CheckUtil {
 
-    public void checkFolder(String folderPath, String filePrefix, int max) throws Exception  {
+    public void checkFolder(String folderPath, String filePrefix, int max) throws Exception {
         File file = new File(folderPath);
         if (!file.exists()) {
-            if(!file.mkdirs()) {
+            if (!file.mkdirs()) {
                 throw new Exception("mkdir failed!");
             }
         } else {
@@ -58,22 +60,38 @@ public class CheckUtil {
     }
 
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+
     private long getCreateTime(File file) throws ParseException {
         String fileName = file.getName();
-        int start = fileName.indexOf("_");
-        int end = fileName.indexOf(".log");
+        int start = fileName.lastIndexOf("_");
+        int end = fileName.lastIndexOf(".log");
+        if (start < end) {
+            return -1;
+        }
         String time = fileName.substring(start + 1, end);
-        return simpleDateFormat.parse(time).getTime();
+        return isDigit(time) ? simpleDateFormat.parse(time).getTime() : -1;
     }
 
 
-
-
     private final String p0 = "%", p1 = "%%";
+
     public String check(String msg, Object... args) {
         if (args.length == 0 && msg.contains(p0)) {
             msg = msg.replaceAll(p0, p1);
         }
         return msg;
+    }
+
+    private boolean isDigit(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        for (int i = str.length(); --i >= 0; ) {
+            int c = str.charAt(i);
+            if (c < 48 || c > 57) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 //        )
         val logManager2 = AgoraLogManager(
             "/sdcard/2/",
-            "AgoraLog",
+            "Agora.log_",
             2,
             "AgoraEducationSDK",
             ALL
