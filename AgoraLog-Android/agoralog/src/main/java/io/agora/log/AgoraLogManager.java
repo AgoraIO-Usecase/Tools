@@ -24,7 +24,7 @@ public class AgoraLogManager {
 
     public AgoraLogManager(@NonNull String folderPath, @NonNull String filePrefix,
                            int maximumNumberOfFiles, @NonNull String tag) throws Exception {
-        this(folderPath, filePrefix, maximumNumberOfFiles, tag, AgoraConsolePrintType.NONE);
+        this(folderPath, filePrefix, maximumNumberOfFiles, tag, AgoraConsolePrintType.ALL);
     }
 
     public AgoraLogManager(@NonNull String folderPath, @NonNull String filePrefix,

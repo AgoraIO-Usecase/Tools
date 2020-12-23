@@ -44,11 +44,10 @@ public class AgoraAndroidLogPrinter implements Printer {
 
     @Override
     public void println(int logLevel, String tag, String msg) {
-
         if (consoleType == AgoraConsolePrintType.NONE) {
             return;
-        } else if (consoleType == AgoraConsolePrintType.ALL) {
-        } else if (logLevel != consoleType) {
+        } else if (consoleType == AgoraConsolePrintType.ALL || logLevel >= consoleType) {
+        } else if(logLevel < consoleType) {
             return;
         }
 
