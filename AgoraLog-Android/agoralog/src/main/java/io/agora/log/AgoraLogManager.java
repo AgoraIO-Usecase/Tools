@@ -54,6 +54,9 @@ public class AgoraLogManager {
 
     public void logMsg(String msg, AgoraLogType type) {
         switch (type) {
+            case DEBUG:
+                d(msg);
+                break;
             case WARNING:
                 w(msg);
                 break;
@@ -70,6 +73,11 @@ public class AgoraLogManager {
     public void i(String msg, Object... args) {
         msg = checkUtil.check(msg, args);
         logger.i(msg, args);
+    }
+
+    public void d(String msg, Object... args) {
+        msg = checkUtil.check(msg, args);
+        logger.d(msg, args);
     }
 
     public void w(String msg, Object... args) {

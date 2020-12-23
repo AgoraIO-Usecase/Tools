@@ -5,6 +5,7 @@ package io.agora.log;
  */
 public class AgoraConsolePrintType {
     public static int NONE = Integer.MIN_VALUE;
+    public static int DEBUG = 3;
     public static int INFO = 4;
     public static int WARNING = 5;
     public static int ERROR = 6;

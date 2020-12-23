@@ -20,25 +20,33 @@ class MainActivity : AppCompatActivity() {
 //            "AgoraEducationSDK",
 //            NONE
 //        )
-//        val logManager1 = AgoraLogManager(
+        val logManager1 = AgoraLogManager(
+            "/sdcard/0/5/7/",
+            "AgoraLog",
+            2,
+            "AgoraEducationSDK",
+            DEBUG
+        )
+//        val logManager2 = AgoraLogManager(
 //            "/sdcard/1/",
 //            "AgoraLog",
 //            2,
 //            "AgoraEducationSDK",
 //            WARNING
 //        )
-        val logManager2 = AgoraLogManager(
-            "/sdcard/2/",
-            "Agora.log_",
-            2,
-            "AgoraEducationSDK",
-            ALL
-        )
+//        val logManager3 = AgoraLogManager(
+//            "/sdcard/2/",
+//            "Agora.log_",
+//            2,
+//            "AgoraEducationSDK",
+//            ALL
+//        )
 
         for (i in 0..9) {
-//            logManager0.logMsg("log-0---$i", AgoraLogType.INFO)
-//            logManager1.logMsg("log-1---$i", AgoraLogType.WARNING)
-            logManager2.logMsg("log-2---$i", AgoraLogType.ERROR)
+            logManager1.logMsg("log-1---$i", AgoraLogType.INFO)
+            logManager1.logMsg("log-1---$i", AgoraLogType.DEBUG)
+//            logManager2.logMsg("log-2---$i", AgoraLogType.WARNING)
+//            logManager3.logMsg("log-3---$i", AgoraLogType.ERROR)
         }
 
         try {
