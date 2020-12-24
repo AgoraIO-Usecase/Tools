@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "AgoraLog"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "AgoraLogger can filter log and print on console. It also write all logs to file."
   spec.homepage     = "https://github.com/AgoraIO-Usecase/Tools/"
   spec.license      = "MIT"
