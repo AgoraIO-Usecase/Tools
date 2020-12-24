@@ -25,10 +25,14 @@
     return self.os.consoleType;
 }
 
-- (instancetype)initWithFolderPath:(NSString *)folderPath filePrefix:(NSString *)filePrefix maximumNumberOfFiles:(NSInteger)number {
+- (instancetype)initWithFolderPath:(NSString *)folderPath
+                        filePrefix:(NSString *)filePrefix
+              maximumNumberOfFiles:(NSInteger)number {
     if (self = [super init]) {
         self.consoleType = AgoraConsolePrintTypeNone;
-        [self initLoggerWithFolder:folderPath filePrefix:filePrefix maximumNumberOfFiles:number];
+        [self initLoggerWithFolder:folderPath
+                        filePrefix:filePrefix
+              maximumNumberOfFiles:number];
     }
     return self;
 }
@@ -42,6 +46,9 @@
             break;
         case AgoraConsolePrintTypeAll:
             [DDLog addLogger:self.os withLevel:DDLogLevelAll];
+            break;
+        case AgoraConsolePrintTypeDebug:
+            [DDLog addLogger:self.os withLevel:DDLogLevelDebug];
             break;
         case AgoraConsolePrintTypeInfo:
             [DDLog addLogger:self.os withLevel:DDLogLevelInfo];
@@ -61,11 +68,16 @@
     return YES;
 }
 
-- (BOOL)log:(NSString *)text type:(AgoraLogType)type {
+- (BOOL)log:(NSString *)text
+       type:(AgoraLogType)type {
     DDLogLevel level;
     DDLogFlag flag;
     
     switch (type) {
+        case AgoraLogTypeDebug:
+            level = DDLogLevelDebug;
+            flag = DDLogFlagDebug;
+            break;
         case AgoraLogTypeInfo:
             level = DDLogLevelInfo;
             flag = DDLogFlagInfo;
@@ -98,7 +110,9 @@
 }
 
 #pragma mark - Private
-- (void)initLoggerWithFolder:(NSString *)folder filePrefix:(NSString *)prefix maximumNumberOfFiles:(NSInteger)number {
+- (void)initLoggerWithFolder:(NSString *)folder
+                  filePrefix:(NSString *)prefix
+        maximumNumberOfFiles:(NSInteger)number {
     static NSInteger uniqueContextId = 1;
     
     self.context = uniqueContextId++;
@@ -107,16 +121,21 @@
     [self.logFormatter addToWhitelist:self.context];
     
     // file
-    AgoraLogFileManager *fileManager = [[AgoraLogFileManager alloc] initWithLogsDirectory:folder withPrefix:prefix];
+    AgoraLogFileManager *fileManager = [[AgoraLogFileManager alloc] initWithLogsDirectory:folder
+                                                                               withPrefix:prefix];
     self.file = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
     self.file.doNotReuseLogFiles = YES;
     self.file.logFileManager.maximumNumberOfLogFiles = number;
     self.file.logFormatter = self.logFormatter;
+    self.file.maximumFileSize = 1024 * 1024 * 5;
+    self.file.rollingFrequency = 0;
     
-    [DDLog addLogger:self.file withLevel:DDLogLevelInfo];
+    [DDLog addLogger:self.file
+           withLevel:DDLogLevelInfo];
     
     // console.app and xcode's console
-    self.os = [[AgoraOSLogger alloc] initWithSubsystem:nil category:nil];
+    self.os = [[AgoraOSLogger alloc] initWithSubsystem:nil
+                                              category:nil];
     self.os.logFormatter = self.logFormatter;
 }
 @end

@@ -63,45 +63,51 @@ class ViewController: UIViewController {
         
         print("----------------------------------------------")
         
+        log1.log("test1 debug", type: .debug)
         log1.log("test1 info", type: .info)
         log1.log("test1 warning", type: .warning)
         log1.log("test1 error", type: .error)
         
         print("----------------------------------------------")
-        
+
+        log2.log("test2 debug", type: .debug)
         log2.log("test2 info", type: .info)
         log2.log("test2 warning", type: .warning)
         log2.log("test2 error", type: .error)
-        
+
         print("----------------------------------------------")
-        
+
+        log3.log("test3 debug", type: .debug)
         log3.log("test3 info", type: .info)
         log3.log("test3 warning", type: .warning)
         log3.log("test3 error", type: .error)
-        
+
         print("----------------------------------------------")
-        
+
+        log4.log("test4 debug", type: .debug)
         log4.log("test4 info", type: .info)
         log4.log("test4 warning", type: .warning)
         log4.log("test4 error", type: .error)
-        
+
         print("----------------------------------------------")
-        
+
+        log5.log("test5 debug", type: .debug)
         log5.log("test5 info", type: .info)
         log5.log("test5 warning", type: .warning)
         log5.log("test5 error", type: .error)
-        
+
         print("----------------------------------------------")
-        
+
         let folder6 = folder1
         let prefix6 = "Test6"
-        
+
         log6 = AgoraLogger(folderPath: folder6,
                            filePrefix: prefix6,
                            maximumNumberOfFiles: 5)
-        
+
         log6.setPrintOnConsoleType(.all)
-        
+
+        log6.log("test6 debug", type: .debug)
         log6.log("test6 info", type: .info)
         log6.log("test6 warning", type: .warning)
         log6.log("test6 error", type: .error)
