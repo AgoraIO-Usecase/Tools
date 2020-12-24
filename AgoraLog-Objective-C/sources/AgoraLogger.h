@@ -14,9 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AgoraLogger : NSObject
 @property (readonly, nonatomic, assign) AgoraConsolePrintType consoleType;
 
-- (instancetype)initWithFolderPath:(NSString *)folderPath filePrefix:(NSString *)filePrefix maximumNumberOfFiles:(NSInteger)number;
+- (instancetype)initWithFolderPath:(NSString *)folderPath
+                        filePrefix:(NSString *)filePrefix
+              maximumNumberOfFiles:(NSInteger)number;
 - (BOOL)setPrintOnConsoleType:(AgoraConsolePrintType)type;
-- (BOOL)log:(NSString *)text type:(AgoraLogType)type;
+- (BOOL)log:(NSString *)text
+       type:(AgoraLogType)type;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;

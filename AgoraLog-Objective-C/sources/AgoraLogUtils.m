@@ -61,10 +61,10 @@
     if (mesaage) {
         NSString *logLevel;
         switch (logMessage->_flag) {
-            case DDLogFlagError    : logLevel = @"ERROR";   break;
-            case DDLogFlagWarning  : logLevel = @"WARNING"; break;
-            case DDLogFlagInfo     : logLevel = @"INFO";    break;
             case DDLogFlagDebug    : logLevel = @"DEBUG";   break;
+            case DDLogFlagInfo     : logLevel = @"INFO";    break;
+            case DDLogFlagWarning  : logLevel = @"WARNING"; break;
+            case DDLogFlagError    : logLevel = @"ERROR";   break;
             default                : logLevel = @"V";       break;
         }
         
@@ -78,39 +78,67 @@
 @end
 
 @implementation AgoraOSLogger
-- (instancetype)initWithSubsystem:(NSString *)subsystem category:(NSString *)category {
-    if (self = [super initWithSubsystem:subsystem category:category]) {
+- (instancetype)initWithSubsystem:(NSString *)subsystem
+                         category:(NSString *)category {
+    self = [super initWithSubsystem:subsystem category:category];
+    
+    if (self) {
         self.consoleType = AgoraConsolePrintTypeNone;
     }
     return self;
 }
 
 - (void)logMessage:(DDLogMessage *)logMessage {
-    if (self.consoleType == AgoraConsolePrintTypeAll) {
-        [super logMessage:logMessage];
-    } else if (self.consoleType == AgoraConsolePrintTypeNone) {
-        [super logMessage:logMessage];
-    } else {
-        switch (logMessage.flag) {
-            case DDLogFlagInfo:
-                if (self.consoleType == AgoraConsolePrintTypeInfo) {
-                    [super logMessage:logMessage];
-                }
-                break;
-            case DDLogFlagWarning:
-                if (self.consoleType == AgoraConsolePrintTypeWarning) {
-                    [super logMessage:logMessage];
-                }
-                break;
-            case DDLogFlagError:
-                if (self.consoleType == AgoraConsolePrintTypeError) {
-                    [super logMessage:logMessage];
-                }
-                break;
-            default:
-                break;
-        }
+    switch (logMessage.flag) {
+        case DDLogFlagDebug:
+            if (self.consoleType & AgoraConsolePrintTypeDebug) {
+                [super logMessage:logMessage];
+            }
+            break;
+        case DDLogFlagInfo:
+            if (self.consoleType & AgoraConsolePrintTypeInfo) {
+                [super logMessage:logMessage];
+            }
+            break;
+        case DDLogFlagWarning:
+            if (self.consoleType & AgoraConsolePrintTypeWarning) {
+                [super logMessage:logMessage];
+            }
+            break;
+        case DDLogFlagError:
+            if (self.consoleType & AgoraConsolePrintTypeError) {
+                [super logMessage:logMessage];
+            }
+            break;
+        default:
+            break;
     }
+    
+    
+//    if (self.consoleType == AgoraConsolePrintTypeAll) {
+//        [super logMessage:logMessage];
+//    } else if (self.consoleType == AgoraConsolePrintTypeNone) {
+//        [super logMessage:logMessage];
+//    } else {
+//        switch (logMessage.flag) {
+//            case DDLogFlagInfo:
+//                if (self.consoleType == AgoraConsolePrintTypeInfo) {
+//                    [super logMessage:logMessage];
+//                }
+//                break;
+//            case DDLogFlagWarning:
+//                if (self.consoleType == AgoraConsolePrintTypeWarning) {
+//                    [super logMessage:logMessage];
+//                }
+//                break;
+//            case DDLogFlagError:
+//                if (self.consoleType == AgoraConsolePrintTypeError) {
+//                    [super logMessage:logMessage];
+//                }
+//                break;
+//            default:
+//                break;
+//        }
+//    }
 }
-
 @end

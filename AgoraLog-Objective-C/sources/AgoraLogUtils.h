@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - AgoraLogFileManager
 @interface AgoraLogFileManager : DDLogFileManagerDefault
-- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory withPrefix:(NSString *)prefix;
+- (instancetype)initWithLogsDirectory:(NSString *)logsDirectory
+                           withPrefix:(NSString *)prefix;
 @end
 
 #pragma mark - AgoraFileLogFormatter

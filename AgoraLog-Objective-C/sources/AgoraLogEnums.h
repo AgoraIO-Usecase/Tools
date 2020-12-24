@@ -9,14 +9,16 @@
 
 typedef NS_ENUM(NSInteger, AgoraConsolePrintType) {
     AgoraConsolePrintTypeNone = 0,
-    AgoraConsolePrintTypeInfo = 1,
-    AgoraConsolePrintTypeWarning = 2,
-    AgoraConsolePrintTypeError = 3,
-    AgoraConsolePrintTypeAll = 4
+    AgoraConsolePrintTypeDebug = 1,
+    AgoraConsolePrintTypeInfo = 2,
+    AgoraConsolePrintTypeWarning = 4,
+    AgoraConsolePrintTypeError = 8,
+    AgoraConsolePrintTypeAll = 15
 };
 
 typedef NS_ENUM(NSInteger, AgoraLogType) {
-    AgoraLogTypeInfo = 0,
-    AgoraLogTypeWarning = 1,
-    AgoraLogTypeError = 2
+    AgoraLogTypeDebug = 0,
+    AgoraLogTypeInfo = 1,
+    AgoraLogTypeWarning = 2,
+    AgoraLogTypeError = 3
 };
