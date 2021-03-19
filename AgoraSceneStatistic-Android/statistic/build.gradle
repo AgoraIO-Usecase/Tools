@@ -1,3 +1,5 @@
+apply plugin: 'com.android.library'
+
 def safeExtGet(prop, key, fallback) {
     if (rootProject.ext.has(prop)) {
         def map = rootProject.ext.get(prop)
@@ -8,10 +10,17 @@ def safeExtGet(prop, key, fallback) {
     return fallback
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.AgoraIO-Usecase'
-version = 'AgoraSceneStatistic-Android-1.0.0'
+// add the maven publish script if existed, otherwise use the github upload script
+def maven_gradle_path = "${rootDir.absolutePath}/maven.gradle"
+if (new File(maven_gradle_path).exists()) {
+    apply from: maven_gradle_path
+}else{
+    apply plugin: 'com.github.dcendents.android-maven'
+}
+
+// special the group name and version using when publishing to maven
+project.group = 'com.github.AgoraIO-Usecase'
+project.version = "${safeExtGet('agora_scene_statistic', 'versionName', "1.0.0")}"
 
 android {
     compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
@@ -20,8 +29,17 @@ android {
     defaultConfig {
         minSdkVersion safeExtGet('android', 'minSdkVersion', 19)
         targetSdkVersion safeExtGet('android', 'minSdkVersion', 29)
+        versionCode safeExtGet('agora_scene_statistic', 'versionCode', 1)
+        versionName "${project.version}"
 
         consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 
     compileOptions {
@@ -34,5 +52,4 @@ dependencies {
     implementation "androidx.annotation:annotation:${safeExtGet('dependencies', 'androidx.annotation:annotation', '1.1.0')}"
     implementation "com.squareup.retrofit2:retrofit:${safeExtGet('dependencies', 'com.squareup.retrofit2:retrofit', '2.9.0')}"
     implementation "com.squareup.retrofit2:converter-gson:${safeExtGet('dependencies', 'com.squareup.retrofit2:converter-gson', '2.9.0')}"
-
 }
