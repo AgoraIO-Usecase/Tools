@@ -1,2 +1,0 @@
-rootProject.name='AgoraLog-Android'
-include ':app', ':agoralog'

@@ -20,7 +20,7 @@ if (new File(maven_gradle_path).exists()) {
 
 // special the group name and version using when publishing to maven
 project.group = 'com.github.AgoraIO-Usecase'
-project.version = "${safeExtGet('agora_scene_statistic', 'versionName', "1.0.0")}"
+project.version = "${safeExtGet('agora_scene_statistic', 'versionName', "1.0.1")}"
 
 android {
     compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
