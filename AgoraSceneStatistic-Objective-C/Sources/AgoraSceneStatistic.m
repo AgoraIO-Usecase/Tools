@@ -136,7 +136,7 @@
     parameters[@"sign"] = sign.get_agora_scene_statistic_md5;
     parameters[@"evaluation"] = evaluation;
     
-    NSString *url = @"http://test-evaluation.bj2.agoralab.co/v1/evaluation/report";
+    NSString *url = @"https://evaluation.bj2.agoralab.co/v1/evaluation/report";
     NSDictionary *header = nil;
     
     ArRequestEventOC *event = [[ArRequestEventOC alloc] initWithName:@"user-rating"];
