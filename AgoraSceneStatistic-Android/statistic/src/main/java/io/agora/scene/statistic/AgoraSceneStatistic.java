@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @since 3/12/21
  */
 public final class AgoraSceneStatistic {
-    private final static String DEFAULT_SERVER_URL = "https://evaluation.bj2.agoralab.co";
+    private final static String DEFAULT_SERVER_URL = "http://test-evaluation.bj2.agoralab.co";
     private final StatisticService statisticService;
     private AgoraSceneStatisticContext mContext;
 
