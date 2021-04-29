@@ -21,7 +21,7 @@ allprojects {
 在app目录下的build.gradle文件中添加以下配置
 ``` kotlin
 dependencies {
-		implementation 'io.github.agoraio-usecase.statistic:1.0.1'
+		implementation 'io.github.agoraio-usecase.tools:statistic:1.0.1'
 	}
 ```
 同步工程

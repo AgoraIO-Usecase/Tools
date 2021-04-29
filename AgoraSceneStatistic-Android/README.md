@@ -21,7 +21,7 @@ allprojects {
 In the app directory build.gradle Add the following configuration to the file
 ``` kotlin
 dependencies {
-		implementation 'io.github.agoraio-usecase.statistic:1.0.1'
+		implementation 'io.github.agoraio-usecase.tools:statistic:1.0.1'
 	}
 ```
 Sync project.
